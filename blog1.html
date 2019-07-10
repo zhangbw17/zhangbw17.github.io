@@ -1,0 +1,163 @@
+<!doctype html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<html>
+
+<head>
+    <style>
+        a {
+            text-decoration: none
+        }
+
+        a.a1:link {
+            color: gray;
+            text-decoration: none;
+        }
+
+        a.a1:visited {
+            color: gray;
+            text-decoration: none;
+        }
+
+        a.a1:hover {
+            color: white;
+            text-decoration: none;
+        }
+
+        a.a1:active {
+            color: white;
+            text-decoration: none;
+        }
+
+        a.aImg:hover {
+            filter: alpha(Opacity=80);
+            -moz-opacity: 0.8;
+            opacity: 0.8;
+        }
+
+        #header {
+            background-color: black;
+            color: gray;
+            text-align: left;
+            font-size: 150%;
+            padding: 1px;
+        }
+
+        #nav {
+            line-height: 30px;
+            background-color: whiteSmoke;
+            height: 900px;
+            width: 100px;
+            float: left;
+            padding: 5px;
+        }
+
+        #section1 {
+            position: absolute;
+            top: 345px;
+            background-color: transparent;
+            width: 50%;
+            height: 100px;
+            float: left;
+            padding: 10px;
+            margin: 0% 25% 0%;
+            font-size: 179%;
+            min-width: 500px;
+            zoom: 1;
+            word-wrap: break-word;
+            word-break: break-all;
+            line-height: 50px;
+        }
+
+        #section2 {
+            position: absolute;
+            top: 450px;
+            background-color: transparent;
+            width: 50%;
+            height: 400px;
+            float: left;
+            padding: 0px 0px 0px 50px;
+            margin: 0% 25% 0%;
+            font-size: 179%;
+            min-width: 500px;
+            zoom: 1;
+            word-wrap: break-word;
+            word-break: break-all;
+            line-height: 50px;
+
+        }
+        div.sculpture
+		{
+			transition: all ease 1s;
+		}
+		div.sculpture:hover
+		{
+			position:relative;
+			transform: rotate(360deg);
+		}
+        #footer {
+            background-color: black;
+            color: white;
+            clear: both;
+            text-align: center;
+            padding: 5px;
+        }
+
+        #webBg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            min-width: 1920px;
+            z-index: -10;
+            zoom: 1;
+            background-color: #fff;
+            background-repeat: no-repeat;
+            background-size: cover;
+            -webkit-background-size: cover;
+            -o-background-size: cover;
+            background-position: center 0;
+        }
+        #blog {
+            background:rgba(240,248,255,0.2);
+            font-size:30px;
+            margin: 0 auto;
+            margin-top:480px;
+            width: 50%;
+            min-width: 1000px;
+            word-wrap: break-word;
+            word-break: break-all;
+            padding-left: 5%;
+            padding-right: 5%;
+            text-indent: 2em;
+        }
+    </style>
+
+    <head>
+
+    <body>
+        <div id="webBg" style="background-image:url(image/galaxyBg2.jpg)">
+
+        </div>
+        <div id="header">
+            <p>
+                <pre><a href="main.html" class="a1"><b>  Zhangbw 的主页</b></a> | <a href="infomation.html" class="a1"><b>个人信息</b></a> | <a href="journal.html" class="a1"><b>个人日志</b></a></pre>
+                <p>
+        </div>
+        <div style="position:absolute;top:22px;right:1.7%;width:50px;height:50px;border-radius:100%;overflow:hidden;">
+            <img src="image/chaiSmall.jpg">
+        </div>
+        <!-- src="galaxy.jpg"-->
+        <div style="position:absolute;top:250px;left:50%;width:200px;height:200px;border-radius:100%;overflow:hidden;margin: 0 0 0 -100px" class = "sculpture">
+            <a href="infomation.html" class="aImg"><img src="image/chaiMid.jpg"></a>
+        </div>
+        <div id="blog">
+                <br>    
+                <p>	终于辛辛苦苦把这个个人主页做完了，期间遇到了各种各样的问题，确实在实际操作过程中和学习过程中的差距还是有点大的，有很多的细节是在学习中没有注意到的，在本篇博客中先将想到的一些遇到过的问题记录下来，并且写出我自己的解决方案。</p>
+                <p>问题最大的也是自始至终都在困扰着我的问题是页面的布局问题。使用像素定位的时候，页面缩小或者换一个高分辨率的显示器都会发现一个问题，比如我希望在我的主页上将一个大头像放在背景的透明区域和不透明区域的交界处，这是一个固定的高度，因为如果随着页面背景随着窗口大小变化的话，这张图显示出来的实际效果会非常别扭。解决的方案是使用百分比定位和像素定位相结合，也就是在高度定位上使用像素值绝对定位，在水平定位上使用百分比定位，在使用margin来达到偏置，也就是将图片放到中心，最后就可以使这个头像始终位于交界处的正中央。</p>
+                <p>然后就是页面的缩放问题，网页如果要做到应用广泛就不可避免的遇到缩放的问题。但是如果完全按照电脑网页的尺寸进行缩放，那么当宽度非常小的时候，很多东西就显示的很奇怪，比如一长串文字，每一行只有几个字。这就非常不美观。解决的方法是在上一些元素跟着网页窗口变化的同时还要设置最小的宽度和最小的高度，让图片和文字不至于显示的很奇怪，背景之类的就保持不动，看起来就比较协调。</p>
+                <p>目前就想到这些，之后有新的问题会继续补充。</p>
+        </div>
+    </body>
+
+</html>

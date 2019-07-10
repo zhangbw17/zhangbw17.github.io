@@ -1,0 +1,164 @@
+<!doctype html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<html>
+
+<head>
+    <style>
+        a {
+            text-decoration: none
+        }
+
+        a.a1:link {
+            color: gray;
+            text-decoration: none;
+        }
+
+        a.a1:visited {
+            color: gray;
+            text-decoration: none;
+        }
+
+        a.a1:hover {
+            color: white;
+            text-decoration: none;
+        }
+
+        a.a1:active {
+            color: white;
+            text-decoration: none;
+        }
+
+        a.aImg:hover {
+            filter: alpha(Opacity=80);
+            -moz-opacity: 0.8;
+            opacity: 0.8;
+        }
+
+        #header {
+            background-color: black;
+            color: gray;
+            text-align: left;
+            font-size: 150%;
+            padding: 1px;
+        }
+
+        #nav {
+            line-height: 30px;
+            background-color: whiteSmoke;
+            height: 900px;
+            width: 100px;
+            float: left;
+            padding: 5px;
+        }
+
+        #section1 {
+            position: absolute;
+            top: 345px;
+            background-color: transparent;
+            width: 50%;
+            height: 100px;
+            float: left;
+            padding: 10px;
+            margin: 0% 25% 0%;
+            font-size: 179%;
+            min-width: 500px;
+            zoom: 1;
+            word-wrap: break-word;
+            word-break: break-all;
+            line-height: 50px;
+        }
+
+        #section2 {
+            position: absolute;
+            top: 450px;
+            background-color: transparent;
+            width: 50%;
+            height: 400px;
+            float: left;
+            padding: 0px 0px 0px 50px;
+            margin: 0% 25% 0%;
+            font-size: 179%;
+            min-width: 500px;
+            zoom: 1;
+            word-wrap: break-word;
+            word-break: break-all;
+            line-height: 50px;
+
+        }
+        div.sculpture
+		{
+			transition: all ease 1s;
+		}
+		div.sculpture:hover
+		{
+			position:relative;
+			transform: rotate(360deg);
+		}
+        #footer {
+            background-color: black;
+            color: white;
+            clear: both;
+            text-align: center;
+            padding: 5px;
+        }
+
+        #webBg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            min-width: 1920px;
+            z-index: -10;
+            zoom: 1;
+            background-color: #fff;
+            background-repeat: no-repeat;
+            background-size: cover;
+            -webkit-background-size: cover;
+            -o-background-size: cover;
+            background-position: center 0;
+        }
+        #blog {
+            background:rgba(240,248,255,0.2);
+            font-size:30px;
+            margin: 0 auto;
+            margin-top:480px;
+            width: 50%;
+            min-width: 1000px;
+            word-wrap: break-word;
+            word-break: break-all;
+            padding-left: 5%;
+            padding-right: 5%;
+            text-indent: 2em;
+        }
+    </style>
+
+    <head>
+
+    <body>
+        <div id="webBg" style="background-image:url(image/galaxyBg2.jpg)">
+
+        </div>
+        <div id="header">
+            <p>
+                <pre><a href="main.html" class="a1"><b>  Zhangbw 的主页</b></a> | <a href="infomation.html" class="a1"><b>个人信息</b></a> | <a href="journal.html" class="a1"><b>个人日志</b></a></pre>
+                <p>
+        </div>
+        <div style="position:absolute;top:22px;right:1.7%;width:50px;height:50px;border-radius:100%;overflow:hidden;">
+            <img src="image/chaiSmall.jpg">
+        </div>
+        <!-- src="galaxy.jpg"-->
+        <div style="position:absolute;top:250px;left:50%;width:200px;height:200px;border-radius:100%;overflow:hidden;margin: 0 0 0 -100px" class = "sculpture">
+            <a href="infomation.html" class="aImg"><img src="image/chaiMid.jpg"></a>
+        </div>
+        <div id="blog">
+                <br>    
+                <p>	这篇文档用于记录在第二次基础作业中遇到的一些问题和想到的解决方案。</p>
+                <p>首先是第一题，ddl问题，js的功能非常强大，我们可以先使用正则表达式，将这个日期的格式换成Data可以接受的模式。当然，到写完之后才发现，题目中给的格式好像是Data可以接受的模式。然后我们可以使用Data的函数算出两个时间相差的秒数。之后我们可以判断，如果是小于等于0，那么就意味着在ddl之前完成作业，也就是迟交0天。否则将秒数除86400然后向下取整再加一，连实交日期一起存入数组，最后返回。</p>
+                <p>第二题是费心思最多的一道题，这里要使用yield，最初将迭代器iterator想象成一个指针，首先建立数据结构，然后不断返回当前节点的数值，之后将指针指向下一个节点。但是实际上在先序遍历的过程中，我们不需要首先建立一个完整的数据结构，我们可以每次在构造函数中定义一个生成器函数，并且在这个函数中实现递归，然后每一次返回当前节点所存储的值，最后就可以完成遍历。</p>
+                <p>第三题就非常简单了，对于每一个元素，判断是不是数字，数字就实现函数，数组就递归的遍历这个数组，最终完成。</p>
+                <p>第四题的中心问题在于，使用正则表达式匹配每个原子算式（两个操作数和一个操作符），判断完给定的计算模式，然后对于每个原子算式进行计算，计算后对括号中不含计算符的实行去括号操作，然后判断expression是不是已经可以换成一个数字了，如果可以那么跳出。</p>
+        </div>
+    </body>
+
+</html>
